@@ -22,12 +22,16 @@ export default class Star extends Component {
   }
 
   componentWillMount () {
-    this.init()
+    // 初始化组件时，初始化数据
+    this.init(this.props.count,this.props.value)
   }
 
-  componentWillReceiveProps () {
-    console.log('componentWillReceiveProps')
+  componentWillReceiveProps (nextProps) {
+    // console.log('componentWillReceiveProps',nextProps)
+    // 父组件闯过来的数据发送变化时，初始化数据
+    this.init(nextProps.count,nextProps.value)
   }
+
   componentDidMount () { }
 
   componentWillUnmount () {
@@ -43,19 +47,20 @@ export default class Star extends Component {
 
   /**
    * 初始化星星
-   * @private
+   * @param propsCount 父组件传递的星星个数
+   * @param propsValue 父组件传递的分数值
    */
-  init(){
+  init(propsCount,propsValue){
     let count = 5
     let value = 5
-    if (this.props.count){
-      count = this.props.count
+    if (propsCount){
+      count = propsCount
     }
-    if (this.props.value){
-      value = this.props.value
+    if (propsValue){
+      value = propsValue
     }
 
-    if (this.props.value > this.props.count){
+    if (propsValue > propsCount){
       value = count
     }
     let arr = []

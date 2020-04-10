@@ -1,5 +1,5 @@
 # taro-evaluate-demo
-> 本demo是基于本人在taro小程序开发中，抽取出来的评价模块，因为算是自己开发的第一个ui组件(评分)，因此来记录下。
+> 本demo是基于本人在taro小程序开发中，抽取出来的公厕评价模块，因为算是自己开发的第一个ui组件(星星评分组件)，因此来记录下。
 
 ## 运行
 > 详情参考官网：https://nervjs.github.io/taro/docs/GETTING-STARTED.html

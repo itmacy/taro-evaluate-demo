@@ -16,6 +16,47 @@ export default class ToiletEvaluate extends Component {
       facilitiesLevel:5, //设施服务
       managementLevel: 5,// 管理服务
       evaluateList:[
+        // {
+        //   desc: '卫生不错',
+        //   isActive: true
+        // },
+      ],
+      advice: '', //建议
+    }
+  }
+
+  componentWillMount () {
+
+    // 获取父组件传过来的参数，并保存在state
+    this.setState({
+      param: this.props.param
+    })
+    // 初始化数据
+    this.initData()
+  }
+
+  componentDidMount () { }
+
+  componentWillUnmount () {
+  }
+
+  componentDidShow () { }
+
+  componentDidHide () { }
+
+  onPullDownRefresh() { }
+
+  onReachBottom() { }
+
+  onPageScroll(res) {
+  }
+
+  initData(){
+    this.setState({
+      hygienicLevel: 5, // 卫生情况
+      facilitiesLevel:5, //设施服务
+      managementLevel: 5,// 管理服务
+      evaluateList:[
         {
           desc: '卫生不错',
           isActive: true
@@ -59,29 +100,7 @@ export default class ToiletEvaluate extends Component {
 
       ],
       advice: '', //建议
-    }
-  }
-
-  componentWillMount () {
-    this.setState({
-      param: this.props.param
     })
-  }
-
-  componentDidMount () { }
-
-  componentWillUnmount () {
-  }
-
-  componentDidShow () { }
-
-  componentDidHide () { }
-
-  onPullDownRefresh() { }
-
-  onReachBottom() { }
-
-  onPageScroll(res) {
   }
 
   onEvaluateClick = (data) => {
@@ -97,6 +116,7 @@ export default class ToiletEvaluate extends Component {
     })
 
   }
+
   onSave = () => {
     let { hygienicLevel, facilitiesLevel, managementLevel,evaluateList, advice } = this.state
     let param = {
@@ -108,6 +128,9 @@ export default class ToiletEvaluate extends Component {
     }
     console.log('提交的内容：', param)
     global.ui.toast('感谢您宝贵的意见')
+
+    // 恢复初始化数据
+    this.initData()
   }
 
   /**

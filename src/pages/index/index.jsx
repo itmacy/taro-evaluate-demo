@@ -1,5 +1,5 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import { View } from '@tarojs/components'
 import './index.scss'
 import ToiletEvaluate from "../toiletevaluate/ToiletEvaluate";
 import React from "react";
@@ -23,7 +23,7 @@ export default class Index extends Component {
   render () {
     return (
       <View className='index'>
-        <ToiletEvaluate param={{toiletId: 123}}/>
+        <ToiletEvaluate param={{toiletId: 123}} />
       </View>
     )
   }
